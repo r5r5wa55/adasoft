@@ -6,9 +6,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 	<meta charset="utf-8">
 	<title>Welcome to CodeIgniter</title>
+	
 	<?php 
     	$this->load->view('tem/inc_css');
   	?>
+
+	////<?php include 'C:\xampp\htdocs\adasoft\application\views\tem\inc_css.php';?>
   
 
 </head>
@@ -20,14 +23,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="container">
 			<?php foreach($water_closet as $key=>$value): ?>
 				<div class="row body-show-long">
-
 					<div class="col-lg-4 hight"><?php echo $value['w_name_closet'];?></div>
 					<div class="col-lg-2 hight"><?php echo $value['price_closet'];?></div>
-					<div class="col-lg-1 hight"><?php echo $value['num_closet'];?></div>
+					<div class="col-lg-1 hight"><?php print_r($value['num_closet']);?></div>
 					<div class="col-lg-2 hight">
 						<a href="javascript:void(0)" class="box-btn-add" onclick="main.get_edit_soft(
 							'<?php echo $value['w_closet_id'];?>',
-							'<?php echo $value['w_name_closet'];?>',
+							'<?php echo $value['w_name_closet'];?>',	
 							'<?php echo $value['price_closet'];?>',
 							'<?php echo $value['num_closet'];?>');">
 							แก้ไขข้อมูล
@@ -36,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					
 					<div class="col-lg-2 hight">
 						<a href="javascript:void(0)" class="box-btn-add" onclick="main.delete_soft(
-							'<?php echo $value['num_closet'];?>');">
+							'<?php echo $value['w_closet_id'];?>');">
 							ลบข้อมูล
 						</a>
 				
@@ -45,6 +47,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				
 				</div>
 			<?php endforeach;?>
+	
+			<!-- <?php echo $water_closet[0]['w_name_closet'];?>	 -->
 			
 		</div>
 		<div id="container-add">	
@@ -56,6 +60,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div id="container-show">	
 			<h1 class="text-header-water">เครื่องดื่มทั้งหมด</h1>
 		</div>
+		
 		
 		<div class="modal fade" id="add_soft" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered" role="document">
@@ -86,8 +91,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 			</div>
 		</div>
-
-
 
 		<div class="modal fade" id="edit_soft" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered" role="document">

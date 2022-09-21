@@ -91,7 +91,10 @@ var main =  {
           }
         })
     },
+
     delete_soft(w_closet_id){
+      // console.log(w_closet_id);
+      // return false;
         var url = window.location.origin+"/index.php/Controll_soft/delete_soft";
         var data = {
           'w_closet_id':w_closet_id  
@@ -110,6 +113,9 @@ var main =  {
             delete jqXHR.setRequestHeader('X-CSRF-TOKEN');
           },
         }).done(function(resp) {
+            // console.log(resp);
+            // return false;
+          
           if(resp.st == 1){
             alert('ลบสำเร็จ')
             location.reload();
